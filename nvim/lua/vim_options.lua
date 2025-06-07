@@ -9,8 +9,14 @@ vim.opt.list = false
 vim.opt.number = true
 vim.cmd("set relativenumber")
 
+-- Cursor style
+vim.opt.guicursor = "n-v-c-i:block"
+
 -- Avoid swapfiles
 vim.opt.swapfile = false
+
+-- Turn on diagnostics
+vim.diagnostic.config({ virtual_text = true })
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
@@ -23,11 +29,15 @@ vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
+-- Save files
+vim.keymap.set("n", "<leader>ww", ":w<CR>")
+vim.keymap.set("n", "<leader>wa", ":wa<CR>")
+
 -- Toggle zen mode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
 
--- Golang error block ('we' = 'write error')
-vim.keymap.set("n", "<leader>we", 'oif err != nil {<CR>fmt.Fprintf(os.Stderr, "%v\\n", err)<CR>}<CR>')
+-- Golang error snippets
+vim.keymap.set("n", "<leader>le", "oif err != nil {<CR>log.Fatal(err)<CR>}<ESC>")
 
 -- Highlight when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {

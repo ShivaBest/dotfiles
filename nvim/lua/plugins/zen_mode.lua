@@ -3,6 +3,9 @@ return {
 	opts = {
 		window = {
 			width = 120,
+			options = {
+				list = false,
+			},
 		},
 	},
 }

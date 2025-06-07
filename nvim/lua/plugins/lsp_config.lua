@@ -21,6 +21,7 @@ return {
 					"gopls",
 					"lua_ls",
 					"pyright",
+					"taplo",
 				},
 			})
 		end,
@@ -34,6 +35,10 @@ return {
 			lspconfig.pyright.setup({})
 			lspconfig.ast_grep.setup({})
 			lspconfig.dartls.setup({})
+			lspconfig.taplo.setup({
+				indent_tables = true,
+				indent_entries = true,
+			}) -- for TOML parsing
 
 			-- Cool LSP based actions
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
