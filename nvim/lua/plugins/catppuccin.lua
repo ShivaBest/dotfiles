@@ -1,3 +1,5 @@
+return {}
+--[[
 return {
     "catppuccin/nvim",
     lazy = false,
@@ -7,3 +9,4 @@ return {
         vim.cmd.colorscheme "catppuccin"
     end
 }
+]]

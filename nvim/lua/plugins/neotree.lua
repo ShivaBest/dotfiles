@@ -9,7 +9,14 @@ return {
 	config = function()
 		vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>", {})
 		require("neo-tree").setup({
-			window = { width = 30 },
+			window = { width = 40 },
+			opts = {
+				filesystem = {
+					follow_current_file = {
+						enabled = true,
+					},
+				},
+			},
 		})
 	end,
 }

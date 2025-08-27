@@ -36,8 +36,11 @@ vim.keymap.set("n", "<leader>wa", ":wa<CR>")
 -- Toggle zen mode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
 
--- Golang error snippets
+-- Golang snippets
+-- log error
 vim.keymap.set("n", "<leader>le", "oif err != nil {<CR>log.Fatal(err)<CR>}<ESC>")
+-- test print
+vim.keymap.set("n", "<leader>tp", 'ofmt.Printf("  ==> test print: LOCATION -> VAL = %+v", VAL) // TEST:<ESC>')
 
 -- Highlight when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
