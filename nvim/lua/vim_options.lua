@@ -12,6 +12,9 @@ vim.cmd("set relativenumber")
 -- Cursor style
 vim.opt.guicursor = "n-v-c-i:block"
 
+-- Add end of line indicator
+vim.opt.colorcolumn = "100"
+
 -- Avoid swapfiles
 vim.opt.swapfile = false
 
@@ -29,9 +32,12 @@ vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
+-- Toggle neovim terminal's normal mode
+vim.keymap.set("t", "<leader><esc>", "<C-\\><C-n>", { desc = "Terminal to Normal mode." })
+
 -- Save files
-vim.keymap.set("n", "<leader>ww", ":w<CR>")
-vim.keymap.set("n", "<leader>wa", ":wa<CR>")
+--vim.keymap.set("n", "<leader>ww", ":w<CR>")
+--vim.keymap.set("n", "<leader>wa", ":wa<CR>")
 
 -- Toggle zen mode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
@@ -40,7 +46,7 @@ vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
 -- log error
 vim.keymap.set("n", "<leader>le", "oif err != nil {<CR>log.Fatal(err)<CR>}<ESC>")
 -- test print
-vim.keymap.set("n", "<leader>tp", 'ofmt.Printf("  ==> test print: LOCATION -> VAL = %+v", VAL) // TEST:<ESC>')
+vim.keymap.set("n", "<leader>tp", 'ofmt.Printf("  ==> VAL = %+v\\n", VAL) // TEST:<ESC>')
 
 -- Highlight when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -113,4 +119,6 @@ vim.opt.scrolloff = 15
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, {
+	desc = "Open diagnostic [Q]uickfix list",
+})

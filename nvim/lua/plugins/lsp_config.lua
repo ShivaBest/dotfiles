@@ -30,9 +30,6 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})
-			lspconfig.gopls.setup({})
-			lspconfig.pyright.setup({})
 			lspconfig.ast_grep.setup({})
 			lspconfig.dartls.setup({})
 			lspconfig.taplo.setup({
