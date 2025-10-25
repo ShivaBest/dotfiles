@@ -21,7 +21,8 @@ return {
 					"gopls",
 					"lua_ls",
 					"pyright",
-					"taplo",
+					"taplo", -- toml
+					"ts_ls", -- typescript
 				},
 			})
 		end,
@@ -36,6 +37,22 @@ return {
 				indent_tables = true,
 				indent_entries = true,
 			}) -- for TOML parsing
+			lspconfig.ts_ls.setup({
+				settings = {
+					typescript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayVariableTypeHints = true,
+						},
+					},
+					javascript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayVariableTypeHints = true,
+						},
+					},
+				},
+			})
 
 			-- Cool LSP based actions
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -55,7 +72,7 @@ return {
 
 --[[
 
--- Switching to kickstart's LSP config to try stuff out.
+-- Kickstart's LSP config:
 return {
 	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
